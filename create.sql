@@ -142,7 +142,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS crime_code_description (
   Crm_Cd INT NOT NULL,
-  -- gonna make these two null for now and see whats up later
   Description VARCHAR(100),
   Part INT,
   PRIMARY KEY (Crm_Cd))

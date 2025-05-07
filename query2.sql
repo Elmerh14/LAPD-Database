@@ -1,4 +1,4 @@
--- All Areas with or without Incidents (Outer Join)
+-- All LAPD Areas reporting Incidents (Outer Join)
 
 SELECT a.Area, a.Area_Name, COUNT(i.DR_NO) AS Total_Incidents
 FROM area a
