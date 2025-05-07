@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS area (
   Area INT NOT NULL,
-  Area_Name VARCHAR(45) NOT NULL,
+  Area_Name VARCHAR(15) NOT NULL,
   PRIMARY KEY (Area))
 ENGINE = InnoDB;
 
@@ -26,7 +26,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS premise (
   Premise_Cd INT NOT NULL,
-  Premis_Desc VARCHAR(100),
+  Premis_Desc VARCHAR(60),
   PRIMARY KEY (Premise_Cd))
 ENGINE = InnoDB;
 
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS weapon (
   Weapon_Used_Cd INT NOT NULL,
-  Weapon_Desc VARCHAR(100) NOT NULL,
+  Weapon_Desc VARCHAR(60) NOT NULL,
   PRIMARY KEY (Weapon_Used_Cd))
 ENGINE = InnoDB;
 
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- status table
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS status (
-  Status VARCHAR(2) NOT NULL,
+  Status CHAR(2) NOT NULL,
   Status_Desc VARCHAR(45) NOT NULL,
   PRIMARY KEY (Status))
 ENGINE = InnoDB;
@@ -56,9 +56,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS location (
   Location_Id INT NOT NULL,
   Location VARCHAR(45) NOT NULL,
-  Cross_Street VARCHAR(100),
+  Cross_Street VARCHAR(45),
   Lat DECIMAL(9,6) NOT NULL,
-  Lon DECIMAL(9,6) NULL,
+  Lon DECIMAL(9,6),
   PRIMARY KEY (Location_Id),
   UNIQUE (Location, Lat, Lon))
 ENGINE = InnoDB;
@@ -68,8 +68,8 @@ ENGINE = InnoDB;
 -- mocode_description table
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mocode_description (
-  Mocodes VARCHAR(30) NOT NULL,
-  Description VARCHAR(255),
+  Mocodes VARCHAR(4) NOT NULL,
+  Description VARCHAR(200),
   PRIMARY KEY (Mocodes))
 ENGINE = InnoDB;
 
@@ -83,11 +83,11 @@ CREATE TABLE IF NOT EXISTS incident (
   Date_OCC VARCHAR(100) NOT NULL,
   Time_OCC VARCHAR(4) NOT NULL,
   Vict_Age INT,
-  Vict_Sex VARCHAR(1),
-  Vict_Descent VARCHAR(2),
+  Vict_Sex CHAR(1),
+  Vict_Descent CHAR(1),
   Premise_Cd INT NOT NULL,
   Weapon_Used_Cd INT,
-  Status VARCHAR(2) NOT NULL,
+  Status CHAR(2) NOT NULL,
   Location_Id INT NOT NULL,
   Rpt_Dist_No INT NOT NULL,
   PRIMARY KEY (DR_NO),
@@ -123,7 +123,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mocode (
   DR_NO INT NOT NULL,
-  Mocodes VARCHAR(30) NOT NULL,
+  Mocodes VARCHAR(4) NOT NULL,
   PRIMARY KEY (DR_NO, Mocodes),
   CONSTRAINT fk_mocode_incident
     FOREIGN KEY (DR_NO)
@@ -142,7 +142,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS crime_code_description (
   Crm_Cd INT NOT NULL,
-  Description VARCHAR(100),
+  Description VARCHAR(60),
   Part INT,
   PRIMARY KEY (Crm_Cd))
 ENGINE = InnoDB;
