@@ -1,3 +1,5 @@
+-- Most Frequent Crimes (Join) 
+
 SELECT ccd.Description, COUNT(*) AS total_reports
 FROM incident i
 JOIN crime_code cc ON i.DR_NO = cc.DR_NO

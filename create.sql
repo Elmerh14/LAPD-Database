@@ -59,7 +59,8 @@ CREATE TABLE IF NOT EXISTS location (
   Cross_Street VARCHAR(100),
   Lat DECIMAL(9,6) NOT NULL,
   Lon DECIMAL(9,6) NULL,
-  PRIMARY KEY (Location_Id))
+  PRIMARY KEY (Location_Id),
+  UNIQUE (Location, Lat, Lon))
 ENGINE = InnoDB;
 
 
